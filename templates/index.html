@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Video AI Demo</title>
+    <style>
+      body { font-family: sans-serif; max-width: 720px; margin: 2rem auto; }
+      .card { border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Upload a video</h1>
+    <form method="post" action="/upload" enctype="multipart/form-data">
+      <input type="file" name="video" accept="video/*" required />
+      <button type="submit">Upload and Analyze</button>
+    </form>
+
+    <h2>Recent results</h2>
+    {% for x in recent %}
+      <div class="card">
+        <div><strong>URL:</strong> <a href="{{ x.cloudinary_url }}" target="_blank">{{ x.cloudinary_url }}</a></div>
+        <div><strong>Size (MB):</strong> {{ x.analysis.approx_megabytes }}</div>
+        <div><strong>Score:</strong> {{ x.analysis.simple_score }}</div>
+        <div><a href="/result/{{ x._id }}">View details</a></div>
+      </div>
+    {% else %}
+      <p>No results yet. Upload your first video above.</p>
+    {% endfor %}
+  </body>
+</html>
+
