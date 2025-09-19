@@ -1,5 +1,6 @@
-Flask==3.0.0
-gunicorn==21.2.0
-pymongo[srv]==4.6.1
-cloudinary==1.39.0
-requests==2.32.3
+fastapi
+uvicorn
+pymongo
+python-dotenv
+bcrypt
+pyjwt
