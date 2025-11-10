@@ -1,6 +1,5 @@
 fastapi
 uvicorn
-pymongo
-python-dotenv
-bcrypt
-pyjwt
+pillow
+requests
+tqdm
